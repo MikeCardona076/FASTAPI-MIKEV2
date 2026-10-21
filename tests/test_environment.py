@@ -69,6 +69,33 @@ class ActivatedShellTests(unittest.TestCase):
             self.assertIn("activate.fish", command)
             self.assertIn("and exec /usr/bin/fish -i", command)
 
+    def test_bootstrap_checks_image_dependency(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            root = Path(temporary_directory)
+            environment_dir = root / ".venv"
+            environment_dir.mkdir()
+            python_executable = environment._venv_python(environment_dir)
+            python_executable.parent.mkdir(parents=True, exist_ok=True)
+            python_executable.touch()
+            requirements = root / "requirements.txt"
+            requirements.write_text("pillow>=10,<13\n", encoding="utf-8")
+
+            with (
+                patch.object(environment, "_dependencies_are_installed", return_value=False),
+                patch.object(environment.venv.EnvBuilder, "create"),
+                patch.object(environment.subprocess, "run") as run,
+                patch.object(environment.sys, "prefix", str(environment_dir)),
+            ):
+                environment.prepare_environment(
+                    root,
+                    root / "wizard.py",
+                    requirements,
+                    "sample",
+                )
+
+            self.assertEqual(run.call_count, 1)
+            self.assertIn(str(requirements), run.call_args.args[0])
+
 
 if __name__ == "__main__":
     unittest.main()

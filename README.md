@@ -50,6 +50,13 @@ El wizard pide primero el nombre del proyecto y crea una subcarpeta con ese
 nombre. Crea un `.venv` dentro de ella, instala las dependencias del propio
 wizard y ejecuta las preguntas desde ese entorno. Si la carpeta del proyecto
 ya existe y contiene archivos, se detiene para no sobrescribirlos.
+Las dependencias del wizard (incluyendo Pillow para el banner pixel-art) se
+declaran en el `requirements.txt` de este repositorio; no se agregan al proyecto
+FastAPI generado.
+
+Al iniciar, limpia la vista de la terminal y dibuja el cubo pixel-art usando
+colores ANSI de 24 bits. Se recomienda Windows Terminal, PowerShell moderno,
+macOS Terminal/iTerm2 o una terminal Linux con soporte true-color.
 
 Al terminar abre una consola nueva en Windows, con `.venv` activado. En Linux y
 macOS continúa en la terminal actual y abre una shell interactiva con `.venv`

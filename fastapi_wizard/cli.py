@@ -2,14 +2,23 @@ from pathlib import Path
 import subprocess
 import sys
 
-from fastapi_wizard.console import info, success, title, warning
+from fastapi_wizard.console import (
+    clear_screen,
+    info,
+    show_banner,
+    success,
+    title,
+    warning,
+)
 from fastapi_wizard.environment import open_activated_shell
 from fastapi_wizard.generation import write_project_files
 from fastapi_wizard.prompts import WizardCancelled, collect_config
 
 
 def run_wizard(project_root: Path, project_name: str) -> None:
-    title("🚀 Bienvenido al Asistente de Inicialización FastAPI (Sr. Mike)")
+    clear_screen()
+    show_banner()
+    title("🚀 Asistente de Inicialización")
     title("=" * 60)
 
     try:

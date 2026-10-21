@@ -17,7 +17,7 @@ def _dependencies_are_installed(python_executable: Path) -> bool:
         [
             str(python_executable),
             "-c",
-            "import colorama, questionary",
+            "import colorama, questionary, PIL",
         ],
         check=False,
         capture_output=True,
