@@ -1,8 +1,24 @@
-# FastAPI Mike Wizard
+<p align="center">
+  <img src="assets/fastapi-mike-icon.png" alt="Cubo pixel-art de FastAPI Mike" width="180">
+</p>
 
-Asistente interactivo que genera una estructura inicial para una API FastAPI.
-El generador está diseñado para Windows, Linux y macOS con Python 3.10 o
-posterior.
+<h1 align="center">FastAPI Mike Wizard</h1>
+
+<p align="center">
+  Crea una base lista para empezar tu próxima API con FastAPI.
+  <br>
+  <strong>Python 3.10+ · Windows · Linux · macOS</strong>
+</p>
+
+<p align="center">
+  <a href="#ejecutar-el-wizard">Empezar</a> ·
+  <a href="#qué-genera">Qué incluye</a> ·
+  <a href="#qué-no-hace--limitaciones">Limitaciones</a>
+</p>
+
+---
+
+Asistente interactivo que genera una estructura inicial para un proyecto FastAPI.
 
 ## Requisitos
 
