@@ -80,6 +80,17 @@ login. La política inicial permite a cualquier usuario autenticado gestionar
 cualquier cuenta; no hay roles ni permisos de administrador. No publiques esa
 API sin implementar una autorización más restrictiva.
 
+## API generada
+
+La captura muestra la documentación Swagger UI y los endpoints que aparecen
+cuando se genera el módulo Usuario:
+
+<p align="center">
+  <img src="assets/api-endpoints.png" alt="Endpoints de usuario y health check en Swagger UI" width="780">
+</p>
+
+Incluye login JWT, registro, operaciones CRUD protegidas y el health check.
+
 ## Primer arranque de la API
 
 Desde la carpeta del proyecto generado:
@@ -103,6 +114,12 @@ Inicia el servidor de desarrollo con:
 
 ```sh
 fastapi dev
+```
+
+Si usas [uv](https://docs.astral.sh/uv/), también puedes iniciarlo con:
+
+```sh
+uv run fastapi dev
 ```
 
 La documentación interactiva estará disponible normalmente en
